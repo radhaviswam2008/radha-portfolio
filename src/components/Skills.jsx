@@ -1,69 +1,60 @@
 
 import { motion } from "framer-motion";
 import {
-  BrainCircuit,
   Code2,
+  Globe,
   Database,
+  BrainCircuit,
   Wrench,
-  Terminal,
-  Cpu,
+  BarChart3,
+  FileText,
 } from "lucide-react";
-import { portfolio } from "../data/portfolio";
 
 const skillGroups = [
   {
-    number: "01",
-    category: "INTELLIGENT SYSTEMS",
-    title: "AI & Machine Learning",
-    skills: portfolio.skills.aiMl,
-    icon: BrainCircuit,
-    card: "bg-[#DCE7F0]",
-    accent: "bg-[#B7CCDF]",
-  },
-  {
-    number: "02",
-    category: "FOUNDATION",
     title: "Programming Languages",
-    skills: portfolio.skills.languages,
     icon: Code2,
-    card: "bg-[#F4DFC7]",
-    accent: "bg-[#E9C69C]",
+    skills: ["C", "C++", "Python", "JavaScript"],
   },
   {
-    number: "03",
-    category: "APPLICATION DEVELOPMENT",
-    title: "Web & Backend",
-    skills: portfolio.skills.webBackend,
-    icon: Terminal,
-    card: "bg-[#DCE8D8]",
-    accent: "bg-[#BDD3B7]",
+    title: "Web Development",
+    icon: Globe,
+    skills: ["HTML", "CSS", "React", "Node.js", "Express.js", "REST APIs"],
   },
   {
-    number: "04",
-    category: "DATA MANAGEMENT",
-    title: "Database",
-    skills: portfolio.skills.database,
+    title: "Databases",
     icon: Database,
-    card: "bg-[#E8DDF0]",
-    accent: "bg-[#D1BCE2]",
+    skills: ["MongoDB", "Mongoose", "DBMS", "CRUD Operations"],
   },
   {
-    number: "05",
-    category: "DEVELOPMENT WORKFLOW",
-    title: "Tools & Platforms",
-    skills: portfolio.skills.tools,
+    title: "AI & Emerging Technologies",
+    icon: BrainCircuit,
+    skills: ["Machine Learning", "Generative AI", "LLMs", "RAG", "IoT"],
+  },
+  {
+    title: "Developer Tools",
     icon: Wrench,
-    card: "bg-[#F2DDDA]",
-    accent: "bg-[#E8C2BD]",
+    skills: [
+      "Git",
+      "GitHub",
+      "VS Code",
+      "Postman",
+      "Arduino IDE",
+    ],
   },
   {
-    number: "06",
-    category: "COMPUTER SCIENCE",
-    title: "Core Concepts",
-    skills: portfolio.skills.core,
-    icon: Cpu,
-    card: "bg-[#E5E8D1]",
-    accent: "bg-[#D0D7AF]",
+    title: "Office & Productivity",
+    icon: FileText,
+    skills: [
+      "Microsoft Word",
+      "Microsoft Excel",
+      "Microsoft PowerPoint",
+    ],
+  },
+  {
+    title: "Data Visualization & BI",
+    icon: BarChart3,
+    skills: ["Microsoft Power BI"],
   },
 ];
 
@@ -71,102 +62,84 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="bg-[#F4F0E8] px-6 py-32 text-[#293747] md:px-12 lg:px-20"
+      className="relative overflow-hidden bg-[#f4f0e8] px-5 py-24 text-[#242820] sm:px-8 lg:px-16"
     >
-      <div className="mx-auto max-w-[1400px]">
-
-        {/* SECTION HEADER */}
+      <div className="mx-auto max-w-7xl">
+        {/* Section heading */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6 }}
+          className="mb-14"
         >
-          <p className="text-xs tracking-[0.35em] text-[#78818A]">
-            05 — TECHNICAL TOOLKIT
+          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-[#71816a]">
+            What I work with
           </p>
 
-          <div className="mt-5 flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
-            <h2 className="max-w-4xl text-5xl font-black leading-[0.9] tracking-[-0.05em] md:text-7xl lg:text-8xl">
-              MY SKILLS
-              <br />
-              <span className="text-[#9BA5AD]">
-                & TOOLKIT.
-              </span>
-            </h2>
+          <h2 className="text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
+            Skills & <span className="text-[#71816a]">Tools.</span>
+          </h2>
 
-            <p className="max-w-sm text-sm leading-6 text-[#697784]">
-              Technologies and concepts I use to explore ideas,
-              develop applications, and build practical solutions.
-            </p>
-          </div>
+          <p className="mt-5 max-w-2xl text-base leading-7 text-[#686a60] sm:text-lg">
+            Technologies and tools I use to build applications,
+            explore AI, work with data, and turn ideas into practical solutions.
+          </p>
         </motion.div>
 
-        {/* SKILL CARDS */}
-        <div className="mt-20 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        {/* Skills grid */}
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {skillGroups.map((group, index) => {
             const Icon = group.icon;
 
             return (
               <motion.article
-                key={group.number}
-                initial={{ opacity: 0, y: 30 }}
+                key={group.title}
+                initial={{ opacity: 0, y: 25 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.15 }}
                 transition={{
-                  duration: 0.65,
-                  delay: index * 0.08,
+                  duration: 0.5,
+                  delay: (index % 3) * 0.1,
                 }}
-                className={`group relative isolate overflow-hidden rounded-[2rem] border border-white/70 ${group.card} p-8 shadow-sm transition-all duration-500 hover:-translate-y-2 hover:shadow-xl md:p-10`}
+                whileHover={{ y: -5 }}
+                className="group rounded-2xl border border-[#deded2] bg-[#fbfaf6] p-6 shadow-sm transition-shadow duration-300 hover:shadow-lg sm:p-7"
               >
+                <div className="mb-5 flex items-center gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#e8eadf] text-[#647c64] transition-colors duration-300 group-hover:bg-[#647c64] group-hover:text-white">
+                    <Icon size={23} strokeWidth={1.8} />
+                  </div>
 
-                {/* DECORATIVE CORNER */}
-                <div
-                  className={`absolute -right-12 -top-12 -z-10 h-36 w-36 rounded-full ${group.accent} opacity-80 transition-transform duration-700 group-hover:scale-125`}
-                />
-
-                {/* CARD NUMBER */}
-                <span className="absolute right-8 top-8 text-sm tracking-widest text-[#667582]/80 md:right-10 md:top-10">
-                  {group.number}
-                </span>
-
-                {/* ICON */}
-                <div className="flex h-14 w-14 items-center justify-center rounded-[1.1rem] border border-white/70 bg-white/55 text-[#34485A] shadow-sm transition-transform duration-500 group-hover:rotate-3 group-hover:scale-105">
-                  <Icon size={25} strokeWidth={1.6} />
+                  <h3 className="text-lg font-semibold leading-snug">
+                    {group.title}
+                  </h3>
                 </div>
 
-                {/* CATEGORY */}
-                <p className="mt-10 text-[10px] tracking-[0.25em] text-[#6D7B87]">
-                  {group.category}
-                </p>
-
-                {/* TITLE */}
-                <h3 className="mt-4 text-2xl font-bold leading-tight tracking-tight text-[#293747]">
-                  {group.title}
-                </h3>
-
-                {/* SKILL TAGS */}
-                <div className="mt-7 flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2">
                   {group.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="rounded-full border border-white/80 bg-white/55 px-3.5 py-2 text-sm text-[#435364] transition-all duration-300 group-hover:bg-white/80"
+                      className="rounded-full border border-[#e0e1d7] bg-white px-3 py-2 text-sm text-[#55594f] transition-colors duration-200 hover:border-[#647c64] hover:text-[#526950]"
                     >
                       {skill}
                     </span>
                   ))}
                 </div>
-
-                {/* BOTTOM ACCENT */}
-                <div className="mt-9 flex justify-end">
-                  <div
-                    className={`h-1 w-12 rounded-full ${group.accent} transition-all duration-500 group-hover:w-20`}
-                  />
-                </div>
               </motion.article>
             );
           })}
         </div>
+
+        {/* Closing note */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.2 }}
+          className="mt-10 text-sm leading-6 text-[#77786e]"
+        >
+          Continuously learning, experimenting, and expanding my technical toolkit.
+        </motion.p>
       </div>
     </section>
   );
