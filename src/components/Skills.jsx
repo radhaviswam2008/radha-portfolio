@@ -8,6 +8,7 @@ import {
   Wrench,
   BarChart3,
   FileText,
+  Cpu,
 } from "lucide-react";
 
 const skillGroups = [
@@ -19,17 +20,45 @@ const skillGroups = [
   {
     title: "Web Development",
     icon: Globe,
-    skills: ["HTML", "CSS", "React", "Node.js", "Express.js", "REST APIs"],
+    skills: [
+      "HTML",
+      "CSS",
+      "React",
+      "Node.js",
+      "Express.js",
+      "REST APIs",
+    ],
   },
   {
-    title: "Databases",
+    title: "Database Management",
     icon: Database,
-    skills: ["MongoDB", "Mongoose", "DBMS", "CRUD Operations"],
+    skills: [
+      "MongoDB",
+      "Mongoose",
+      "DBMS",
+      "CRUD Operations",
+    ],
   },
   {
-    title: "AI & Emerging Technologies",
+    title: "AI & Machine Learning",
     icon: BrainCircuit,
-    skills: ["Machine Learning", "Generative AI", "LLMs", "RAG", "IoT"],
+    skills: [
+      "Machine Learning",
+      "Generative AI",
+      "Large Language Models (LLMs)",
+      "Retrieval-Augmented Generation (RAG)",
+    ],
+  },
+  {
+    title: "IoT & Embedded Systems",
+    icon: Cpu,
+    skills: [
+      "Internet of Things (IoT)",
+      "ESP32",
+      "Arduino IDE",
+      "Sensor Integration",
+      "Hardware-Software Integration",
+    ],
   },
   {
     title: "Developer Tools",
@@ -39,7 +68,6 @@ const skillGroups = [
       "GitHub",
       "VS Code",
       "Postman",
-      "Arduino IDE",
     ],
   },
   {
@@ -54,7 +82,11 @@ const skillGroups = [
   {
     title: "Data Visualization & BI",
     icon: BarChart3,
-    skills: ["Microsoft Power BI"],
+    skills: [
+      "Microsoft Power BI",
+      "Dashboard Design",
+      "Data Visualization",
+    ],
   },
 ];
 
@@ -65,7 +97,7 @@ export default function Skills() {
       className="relative overflow-hidden bg-[#f4f0e8] px-5 py-24 text-[#242820] sm:px-8 lg:px-16"
     >
       <div className="mx-auto max-w-7xl">
-        {/* Section heading */}
+        {/* Section Heading */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -74,7 +106,7 @@ export default function Skills() {
           className="mb-14"
         >
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.25em] text-[#71816a]">
-            What I work with
+            My Technical Toolkit
           </p>
 
           <h2 className="text-4xl font-semibold tracking-tight sm:text-5xl lg:text-6xl">
@@ -82,12 +114,13 @@ export default function Skills() {
           </h2>
 
           <p className="mt-5 max-w-2xl text-base leading-7 text-[#686a60] sm:text-lg">
-            Technologies and tools I use to build applications,
-            explore AI, work with data, and turn ideas into practical solutions.
+            A growing toolkit across software development, artificial
+            intelligence, IoT, and data visualization to turn ideas
+            into practical solutions.
           </p>
         </motion.div>
 
-        {/* Skills grid */}
+        {/* Skills Grid */}
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {skillGroups.map((group, index) => {
             const Icon = group.icon;
@@ -105,6 +138,7 @@ export default function Skills() {
                 whileHover={{ y: -5 }}
                 className="group rounded-2xl border border-[#deded2] bg-[#fbfaf6] p-6 shadow-sm transition-shadow duration-300 hover:shadow-lg sm:p-7"
               >
+                {/* Category Title */}
                 <div className="mb-5 flex items-center gap-4">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#e8eadf] text-[#647c64] transition-colors duration-300 group-hover:bg-[#647c64] group-hover:text-white">
                     <Icon size={23} strokeWidth={1.8} />
@@ -115,6 +149,7 @@ export default function Skills() {
                   </h3>
                 </div>
 
+                {/* Skill Tags */}
                 <div className="flex flex-wrap gap-2">
                   {group.skills.map((skill) => (
                     <span
@@ -130,7 +165,7 @@ export default function Skills() {
           })}
         </div>
 
-        {/* Closing note */}
+        {/* Closing Note */}
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -138,7 +173,7 @@ export default function Skills() {
           transition={{ duration: 0.7, delay: 0.2 }}
           className="mt-10 text-sm leading-6 text-[#77786e]"
         >
-          Continuously learning, experimenting, and expanding my technical toolkit.
+          Continuously learning, building, and expanding my technical toolkit.
         </motion.p>
       </div>
     </section>
