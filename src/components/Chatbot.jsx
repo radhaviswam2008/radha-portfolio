@@ -164,17 +164,19 @@ const profile = {
 
 const initialMessage = {
   role: "assistant",
-  text: "Hi! 👋 I'm my portfolio assistant. Ask me about my name, academics, projects, skills, achievements, unique capabilities, or why I could be a good fit for a team.",
+  text: "Hi! 👋 I'm Radha Krishna's AI portfolio assistant. Ask me about his academics, projects, technical skills, achievements, or experience. I'll help you explore his work and understand what he brings to a team."
 };
 
+
 const suggestions = [
-  "What makes me unique?",
-  "Why should a company hire me?",
-  "What are my unique capabilities?",
-  "What is my CGPA?",
-  "Tell me about my projects",
-  "What are my achievements?",
+  "What makes RK unique?",
+  "Why should a company hire RK?",
+  "What are his strongest technical skills?",
+  "What is his CGPA?",
+  "Tell me about his projects",
+  "His major achievements?",
 ];
+
 
 function normalize(text) {
   return text
@@ -265,7 +267,11 @@ function getAnswer(input) {
       "unique selling proposition",
       "usp",
       "stand out",
-      "standout"
+      "standout",
+      "what makes rk unique",
+      "what makes radha krishna unique",
+      "why is rk unique",
+      "what makes rk different",
     )
   ) {
     return `I believe my biggest differentiator is the combination of my academic consistency and my interest in applying technology to practical problems.\n\nHere is what makes my profile distinctive:\n\n• Strong academics: I have a CGPA of ${profile.education.cgpa} in CSE (IoT).\n\n• Interdisciplinary projects: I have worked on projects spanning backend development, IoT-based electrical monitoring, and an AI-based farmer procurement workflow.\n\n• Problem-oriented thinking: My project ideas focus on practical challenges, such as campus event coordination, electrical monitoring, and reducing waiting time at agricultural procurement centers.\n\n• Recognition: I won first place in the CargoIQ Ideathon and was selected as a Reliance Foundation Undergraduate Scholar.\n\n• Continuous learning: I am developing my skills in programming, backend technologies, AI, and full-stack development.\n\nI am still growing as a developer, but I want to stand out by turning what I learn into useful, working solutions.`;
@@ -284,7 +290,13 @@ function getAnswer(input) {
       "why am i a good candidate",
       "why am i suitable",
       "why am i fit",
-      "why should a recruiter hire me"
+      "why should a recruiter hire me",
+      "why should a company hire rk",
+      "why should a company hire radha krishna",
+      "why should we hire rk",
+      "why should you hire rk",
+      "why hire rk",
+      "hire rk",
     )
   ) {
     return `I believe I could be a valuable candidate because I combine strong academics with practical project work and a willingness to learn.\n\n• My CGPA is ${profile.education.cgpa}, demonstrating academic consistency.\n\n• I have explored backend development using Node.js, Express.js, and MongoDB.\n\n• My projects span software development, AI-oriented problem solving, and IoT hardware.\n\n• Winning first place in the CargoIQ Ideathon gave me recognition for an AI-powered logistics solution.\n\n• I am interested in learning, collaborating, and building technology that solves real problems.\n\nAs a student, I am looking for opportunities where I can contribute, learn from experienced engineers, and grow into a stronger developer.`;
@@ -918,18 +930,22 @@ if (!open) {
             Ask me anything
           </p>
 
-          <div className="flex flex-wrap gap-2">
-            {suggestions.map((suggestion) => (
-              <button
-                type="button"
-                key={suggestion}
-                onClick={() => sendMessage(suggestion)}
-                className="rounded-full border border-[#D9D8CF] bg-white px-3 py-2 text-left text-[11px] text-[#45453F] transition hover:border-[#A3B18A] hover:bg-[#F0F2EA]"
-              >
-                {suggestion}
-              </button>
-            ))}
-          </div>
+          
+
+<div className="flex flex-wrap items-center gap-2">
+  {suggestions.map((suggestion) => (
+    <button
+      type="button"
+      key={suggestion}
+      onClick={() => sendMessage(suggestion)}
+      className="rounded-full border border-[#D9D8CF] bg-white px-3 py-2 text-left text-[11px] leading-4 text-[#45453F] transition hover:border-[#A3B18A] hover:bg-[#F0F2EA]"
+    >
+      {suggestion}
+    </button>
+  ))}
+</div>
+
+
         </div>
       )}
 
