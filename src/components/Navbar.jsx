@@ -50,16 +50,14 @@ export default function Navbar({ onAskAI }) {
     ? "text-white/70 hover:text-white"
     : "text-black/55 hover:text-black";
 
-  
-const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Work", href: "#projects" },
-  { label: "Achievements", href: "#achievements" },
-  { label: "Skills", href: "#skills" },
-  { label: "Profiles", href: "#profiles" },
-  { label: "Resume & Contact", href: "#resume-contact" },
-];
-
+  const navLinks = [
+    { label: "About", href: "#about" },
+    { label: "Work", href: "#projects" },
+    { label: "Achievements", href: "#achievements" },
+    { label: "Skills", href: "#skills" },
+    { label: "Profiles", href: "#profiles" },
+    { label: "Resume & Contact", href: "#resume-contact" },
+  ];
 
   const handleNavClick = () => {
     setMobileMenuOpen(false);
@@ -73,11 +71,16 @@ const navLinks = [
   return (
     <nav className="fixed left-0 top-0 z-50 w-full px-6 py-5">
       <div className="relative mx-auto flex max-w-7xl items-center justify-between">
-        {/* Logo */}
+        {/* Circular RK Logo */}
         <a
           href="#home"
           onClick={handleNavClick}
-          className={`text-sm font-bold tracking-[0.18em] transition-colors duration-300 ${textColor}`}
+          aria-label="Go to homepage"
+          className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full border text-base font-bold tracking-normal shadow-sm backdrop-blur-sm transition-all duration-300 hover:scale-105 lg:-ml-12 ${
+            darkSection
+              ? "border-white/20 bg-white/10 text-[#f4f0e8] hover:bg-white/20"
+              : "border-[#647c64]/25 bg-[#647c64]/10 text-[#405640] hover:bg-[#647c64]/20"
+          }`}
         >
           RK.
         </a>
@@ -95,9 +98,8 @@ const navLinks = [
           ))}
         </div>
 
-        {/* Right-side actions */}
+        {/* Right-side Actions */}
         <div className="flex items-center gap-3">
-          {/* Ask AI */}
           <button
             type="button"
             onClick={handleAskAI}
@@ -111,7 +113,7 @@ const navLinks = [
             <span>Ask AI</span>
           </button>
 
-          {/* Mobile menu toggle */}
+          {/* Mobile Menu Toggle */}
           <button
             type="button"
             onClick={() => setMobileMenuOpen((open) => !open)}

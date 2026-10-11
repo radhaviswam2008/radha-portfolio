@@ -39,13 +39,15 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <div className="overflow-hidden rounded-[2rem] bg-[#e8e2d8]">
-              <img
-                src="/images/profile.png"
-                alt="Radha Krishna Chalamalasetti"
-                className="h-[500px] w-full object-cover object-top"
-              />
-            </div>
+            
+          <div className="overflow-hidden rounded-[2rem] bg-[#e8e2d8]">
+            <img
+              src="/images/profile.png"
+              alt="Radha Krishna Chalamalasetti"
+              className="h-[400px] w-full object-cover object-top sm:h-[400px] lg:h-[500px]"
+            />
+          </div>
+
           </motion.div>
 
           {/* Right — Introduction */}
