@@ -31,7 +31,9 @@ export default function Navbar({ onAskAI }) {
       setDarkSection(isDark);
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("scroll", handleScroll, {
+      passive: true,
+    });
     window.addEventListener("resize", handleScroll);
 
     handleScroll();
@@ -42,13 +44,9 @@ export default function Navbar({ onAskAI }) {
     };
   }, []);
 
-  const textColor = darkSection
-    ? "text-white"
-    : "text-[#171717]";
-
   const mutedColor = darkSection
-    ? "text-white/70 hover:text-white"
-    : "text-black/55 hover:text-black";
+    ? "text-white/75 hover:text-white"
+    : "text-black/60 hover:text-black";
 
   const navLinks = [
     { label: "About", href: "#about" },
@@ -69,17 +67,23 @@ export default function Navbar({ onAskAI }) {
   };
 
   return (
-    <nav className="fixed left-0 top-0 z-50 w-full px-6 py-5">
+    <nav
+      className={`fixed left-0 top-0 z-50 w-full border-b px-6 py-4 backdrop-blur-xl transition-all duration-300 ${
+        darkSection
+          ? "border-white/10 bg-[#171717]/90"
+          : "border-[#D8D2C8]/70 bg-[#F4F0E8]/95"
+      }`}
+    >
       <div className="relative mx-auto flex max-w-7xl items-center justify-between">
         {/* Circular RK Logo */}
         <a
           href="#home"
           onClick={handleNavClick}
           aria-label="Go to homepage"
-          className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full border text-base font-bold tracking-normal shadow-sm backdrop-blur-sm transition-all duration-300 hover:scale-105 lg:-ml-12 ${
+          className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-full border text-base font-bold tracking-normal shadow-sm transition-all duration-300 hover:scale-105 lg:-ml-12 ${
             darkSection
-              ? "border-white/20 bg-white/10 text-[#f4f0e8] hover:bg-white/20"
-              : "border-[#647c64]/25 bg-[#647c64]/10 text-[#405640] hover:bg-[#647c64]/20"
+              ? "border-white/20 bg-white/10 text-[#F4F0E8] hover:bg-white/20"
+              : "border-[#647C64]/25 bg-[#647C64]/10 text-[#405640] hover:bg-[#647C64]/20"
           }`}
         >
           RK.
@@ -91,6 +95,7 @@ export default function Navbar({ onAskAI }) {
             <a
               key={link.href}
               href={link.href}
+              onClick={handleNavClick}
               className={`whitespace-nowrap transition-colors duration-300 ${mutedColor}`}
             >
               {link.label}
@@ -116,8 +121,12 @@ export default function Navbar({ onAskAI }) {
           {/* Mobile Menu Toggle */}
           <button
             type="button"
-            onClick={() => setMobileMenuOpen((open) => !open)}
-            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+            onClick={() =>
+              setMobileMenuOpen((open) => !open)
+            }
+            aria-label={
+              mobileMenuOpen ? "Close menu" : "Open menu"
+            }
             aria-expanded={mobileMenuOpen}
             className={`flex h-10 w-10 items-center justify-center rounded-full border transition-colors duration-300 lg:hidden ${
               darkSection
@@ -162,8 +171,8 @@ export default function Navbar({ onAskAI }) {
         <div
           className={`absolute left-4 right-4 top-full mt-2 rounded-2xl border p-4 shadow-xl backdrop-blur-xl lg:hidden ${
             darkSection
-              ? "border-white/10 bg-[#20201e]/95"
-              : "border-black/10 bg-[#f4f0e8]/95"
+              ? "border-white/10 bg-[#20201E]/95"
+              : "border-[#D8D2C8] bg-[#F4F0E8]/98"
           }`}
         >
           <div className="flex flex-col">
